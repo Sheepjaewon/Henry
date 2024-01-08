@@ -1,0 +1,31 @@
+def solve_system_of_equations(a11, a12, b1, a21, a22, b2):
+    determinant = a11 * a22 - a12 * a21
+
+    if determinant == 0:
+        return None  # 해가 없거나 무수히 많은 경우는 None을 반환합니다.
+
+    x = (b1 * a22 - b2 * a12) / determinant
+    y = (a11 * b2 - a21 * b1) / determinant
+
+    return x, y
+
+# 사용자로부터 연립방정식의 계수와 상수항을 입력받습니다.
+a11 = float(input("a11 값을 입력하세요: "))
+a12 = float(input("a12 값을 입력하세요: "))
+b1 = float(input("b1 값을 입력하세요: "))
+
+a21 = float(input("a21 값을 입력하세요: "))
+a22 = float(input("a22 값을 입력하세요: "))
+b2 = float(input("b2 값을 입력하세요: "))
+
+# 연립방정식을 풀어 해를 구합니다.
+result = solve_system_of_equations(a11, a12, b1, a21, a22, b2)
+
+# 결과 출력
+if result is None:
+    print("해가 없거나 무수히 많습니다.")
+else:
+    x, y = result
+    print("해:")
+    print(f"x = {x}")
+    print(f"y = {y}")

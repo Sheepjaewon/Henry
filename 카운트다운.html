@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>전자시계</title>
+</head>
+<body>
+  <h1>전자시계</h1>
+
+  <div id="clock"></div>
+
+  <script>
+    // 현재 시간 구하기
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let day = now.getDate();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let second = now.getSeconds();
+
+    // 목표 시간 구하기
+    let targetDate = new Date(2023, 11, 31, 23, 59, 0);
+
+    // 남은 시간 계산
+    let remainingTime = targetDate - now;
+    let remainingYears = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 365));
+    let remainingMonths = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 30));
+    let remainingWeeks = Math.floor(remainingTime / (1000 * 60 * 60 * 24 * 7));
+    let remainingDays = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+    let remainingHours = Math.floor(remainingTime / (1000 * 60 * 60));
+    let remainingMinutes = Math.floor(remainingTime / (1000 * 60)) % 60;
+    let remainingSeconds = Math.floor(remainingTime / 1000) % 60;
+
+    // 전자시계 화면 갱신
+    function updateClock() {
+      // 남은 시간을 전자시계 형식으로 표시
+      document.getElementById("clock").innerHTML =
+        `${remainingYears}년 ${remainingMonths}월 ${remainingWeeks}주 ${remainingDays}일 ${remainingHours}:${remainingMinutes}:${remainingSeconds}`;
+
+      // 1초 후에 다시 호출
+      setTimeout(updateClock, 1000);
+    }
+
+    // 페이지가 로드되면 전자시계 화면을 갱신
+    updateClock();
+  </script>
+</body>
+</html>

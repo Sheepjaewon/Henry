@@ -1,0 +1,5 @@
+@ECHO OFF
+
+HCHO 3LOG2
+
+PAUSE

@@ -1,0 +1,74 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+<button>재생</button>
+<div style="
+display : flex;
+justify-content: center;
+align-items: center;
+background: rgb(179, 155, 155);
+color: white;
+width: 100px;
+height : 100px;
+border-radius: 50%;
+">엄</div>
+
+<script>
+  document.querySelector('button')
+  .addEventListener('click', async () => {
+    await Tone.Transport.start()
+  })
+
+
+
+
+// FMSynth 생성
+const fmSynth = new Tone.FMSynth().toDestination();
+  const drum  = new Tone.MetalSynth({
+    envelope: {
+      attack: 0.01,
+      decay: 0.1,
+      release: 2.3
+    }}).toDestination()
+
+  new Tone.Loop(t => {
+	fmSynth.triggerAttackRelease("G5", "8n",t)
+	fmSynth.triggerAttackRelease("C6", "8n",t+1)
+	fmSynth.triggerAttackRelease("B6", "8n",t+2)
+	fmSynth.triggerAttackRelease("C6", "8n",t+3)
+	fmSynth.triggerAttackRelease("D6", "8n",t+4)
+	fmSynth.triggerAttackRelease("C6", "8n",t+5)
+	fmSynth.triggerAttackRelease("D6", "8n",t+6)
+	fmSynth.triggerAttackRelease("E6", "8n",t+7)
+	fmSynth.triggerAttackRelease("F5", "8n",t+8)
+	fmSynth.triggerAttackRelease("G5", "8n",t+9)
+	fmSynth.triggerAttackRelease("A5", "8n")
+	fmSynth.triggerAttackRelease("E5", "8n")
+	fmSynth.triggerAttackRelease("E5", "8n")
+	fmSynth.triggerAttackRelease("C5", "8n")
+	fmSynth.triggerAttackRelease("C5", "8n")
+	fmSynth.triggerAttackRelease("B5", "8n")
+	fmSynth.triggerAttackRelease("A5", "8n")
+	fmSynth.triggerAttackRelease("C5", "8n")
+	fmSynth.triggerAttackRelease("G4", "8n")
+	fmSynth.triggerAttackRelease("C4", "8n",t)
+	fmSynth.triggerAttackRelease("G7", "8n",t)
+	fmSynth.triggerAttackRelease("C8", "8n",t+1)
+	fmSynth.triggerAttackRelease("B7", "8n",t+2)
+	fmSynth.triggerAttackRelease("C8", "8n",t+3)
+	fmSynth.triggerAttackRelease("D7", "8n",t+4)
+	fmSynth.triggerAttackRelease("C7", "8n",t+5)
+	fmSynth.triggerAttackRelease("D8", "8n",t+6)
+	fmSynth.triggerAttackRelease("E8", "8n")
+	fmSynth.triggerAttackRelease("F7", "8n")
+	fmSynth.triggerAttackRelease("G7", "8n")
+	fmSynth.triggerAttackRelease("A7", "8n")
+	fmSynth.triggerAttackRelease("E7", "8n")
+	fmSynth.triggerAttackRelease("E7", "8n")
+	fmSynth.triggerAttackRelease("C7", "8n")
+	fmSynth.triggerAttackRelease("C7", "8n")
+	fmSynth.triggerAttackRelease("B7", "8n")
+	fmSynth.triggerAttackRelease("A7", "8n")
+	fmSynth.triggerAttackRelease("C7", "8n")
+}, 2).start(0)
+
+</script>

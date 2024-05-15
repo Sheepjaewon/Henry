@@ -8,6 +8,7 @@ def my_factorial(n):
 a = int(input("팩토리얼을 구할 숫자를 입력하세요 : "))
 print(my_factorial(a))\
 
+a=int(inpt("입력하고 싶은 숫자를 입력하세요")
 def mytroll(n):
   if n>0:
     print(mytroll)
@@ -15,3 +16,4 @@ def mytroll(n):
     
   else:
     print("완료")
+print(mytroll(a))
